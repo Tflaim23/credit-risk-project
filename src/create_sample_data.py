@@ -68,6 +68,12 @@ def main() -> None:
         }
     ).sort_values("issue_d")
 
+    #add random missing values to 4 categories to make sure missingness works in the profile report
+    df.loc[rng.random(n) < 0.05, "annual_inc"] = np.nan
+    df.loc[rng.random(n) < 0.03, "dti"] = np.nan
+    df.loc[rng.random(n) < 0.02, "fico"] = np.nan
+    df.loc[rng.random(n) < 0.02, "home_ownership"] = pd.NA
+    
     # write to csv
     out_dir = Path("data/sample")
     out_dir.mkdir(parents=True, exist_ok=True)

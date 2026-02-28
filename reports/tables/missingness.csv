@@ -1,0 +1,12 @@
+column,pct_missing
+issue_d,0.0
+loan_amnt,0.0
+int_rate,0.0
+term,0.0
+grade,0.0
+home_ownership,0.0
+purpose,0.0
+annual_inc,0.0
+dti,0.0
+fico,0.0
+loan_status,0.0

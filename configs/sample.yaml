@@ -1,0 +1,10 @@
+input_path: "data/sample/loans_sample.csv"
+
+date_col: "issue_d"
+target_col: "loan_status"
+default_value: "Charged Off"
+
+out_tables_dir: "reports/tables"
+out_figures_dir: "reports/figures"
+
+missingness_top_n: 30

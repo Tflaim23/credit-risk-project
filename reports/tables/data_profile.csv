@@ -1,0 +1,9 @@
+metric,value
+rows,2000
+columns,11
+memory_mb,0.25
+duplicate_rows,0
+date_min,2016-01-01 00:00:00
+date_max,2019-12-01 00:00:00
+event_rate,0.152
+event_definition,loan_status == 'Charged Off'

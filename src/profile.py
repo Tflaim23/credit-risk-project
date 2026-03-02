@@ -18,7 +18,7 @@ def load_config(config_path: str) -> dict:
     with open(config_path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
-
+    # Read loan data and put into datetime format
 def read_data(input_path: str, date_col: str) -> pd.DataFrame:
     path = Path(input_path)
     if not path.exists():
@@ -35,7 +35,7 @@ def read_data(input_path: str, date_col: str) -> pd.DataFrame:
 
     return df
 
-
+# Compute shape, memory, duplicates, date range, and default rate 
 def compute_overview(
     df: pd.DataFrame, date_col: str, target_col: str, default_value: str
 ) -> pd.DataFrame:
@@ -59,7 +59,7 @@ def compute_overview(
         event_rate = float(y.mean())
     else:
         event_rate = None
-
+    # Put all metrics into 2 col table
     overview_rows = [
         {"metric": "rows", "value": n_rows},
         {"metric": "columns", "value": n_cols},
@@ -73,7 +73,7 @@ def compute_overview(
 
     return pd.DataFrame(overview_rows)
 
-
+# Compute % missing per col
 def compute_missingness(df: pd.DataFrame) -> pd.DataFrame:
     missing_pct = df.isna().mean() * 100
     out = (
@@ -85,7 +85,7 @@ def compute_missingness(df: pd.DataFrame) -> pd.DataFrame:
     out["pct_missing"] = out["pct_missing"].round(2)
     return out
 
-
+# Compute unique values per categorical col
 def compute_categorical_cardinality(df: pd.DataFrame) -> pd.DataFrame:
     cat_cols = df.select_dtypes(include=["object", "string"]).columns
     rows = []
@@ -94,7 +94,7 @@ def compute_categorical_cardinality(df: pd.DataFrame) -> pd.DataFrame:
     out = pd.DataFrame(rows).sort_values("n_unique", ascending=False)
     return out
 
-
+# Plot top N missingness cols
 def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) -> None:
     top = missingness_df.head(top_n).copy()
     top = top.sort_values("pct_missing", ascending=True)
@@ -109,8 +109,9 @@ def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) ->
     plt.savefig(out_path, dpi=150)
     plt.close()
 
-
+# Executing everything in the script at once
 def main() -> None:
+    # Makes it so you don't have to type path for new data
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to a YAML config file")
     args = parser.parse_args()

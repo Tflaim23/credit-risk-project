@@ -1,4 +1,4 @@
-input_path: "data/sample/loans_sample.csv"
+input_path: "data/processed/loans_sample.parquet"
 
 date_col: "issue_d"
 target_col: "loan_status"

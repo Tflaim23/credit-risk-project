@@ -1,0 +1,15 @@
+input_path: "data/processed/lendingclub_full.parquet"
+
+date_col: "issue_d"
+status_col: "loan_status"
+
+# binary classification
+good_statuses:
+  - "Fully Paid"
+  - "Does not meet the credit policy. Status:Fully Paid"
+
+bad_statuses:
+  - "Charged Off"
+  - "Does not meet the credit policy. Status:Charged Off"
+
+out_processed_path: "data/processed/lendingclub_modeling_v1.parquet"

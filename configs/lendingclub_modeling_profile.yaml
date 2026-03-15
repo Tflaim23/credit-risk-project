@@ -1,0 +1,10 @@
+input_path: "data/processed/lendingclub_modeling_v1.parquet"
+
+date_col: "issue_d"
+target_col: "y"
+default_value: 1
+
+out_tables_dir: "reports/tables/modeling_v1"
+out_figures_dir: "reports/figures/modeling_v1"
+
+missingness_top_n: 30

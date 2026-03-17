@@ -124,9 +124,41 @@ def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) ->
     plt.savefig(out_path, dpi=150)
     plt.close()
 
-# Executing everything in the script at once
+# (NEW) Plot missingness for a specific band
+def plot_missingness_band(
+    missingness_df: pd.DataFrame,
+    min_pct: float,
+    max_pct: float,
+    out_path: str,
+    max_bars: int = 60,
+) -> None:
+    # Filter
+    band = missingness_df[
+        (missingness_df["pct_missing"] >= min_pct)
+        & (missingness_df["pct_missing"] <= max_pct)
+    ].copy()
+
+    if band.empty:
+        print(f"No columns found with missingness between {min_pct}% and {max_pct}%.")
+        return
+
+    # Sort
+    band = band.sort_values("pct_missing", ascending=False)
+
+    band = band.head(max_bars)
+
+    plt.figure(figsize=(10, 8))
+    plt.barh(band["column"], band["pct_missing"])
+    plt.xlabel("Percent missing")
+    plt.title(f"Columns with {min_pct}% to {max_pct}% missing (top {len(band)})")
+    plt.gca().invert_yaxis()  # highest missingness at top
+    plt.tight_layout()
+
+    Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out_path, dpi=150)
+    plt.close()
+
 def main() -> None:
-    # Makes it so you don't have to type path for new data
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to a YAML config file")
     args = parser.parse_args()
@@ -169,10 +201,21 @@ def main() -> None:
     fig_path = str(Path(out_figures_dir) / "missingness_top30.png")
     plot_missingness(missingness_df=missingness, top_n=top_n, out_path=fig_path)
 
+    # more useful missingness plot that excludes the ~99-100% junk columns
+    band_fig_path = str(Path(out_figures_dir) / "missingness_band_50_97.png")
+    plot_missingness_band(
+    missingness_df=missingness,
+    min_pct=50.0,
+    max_pct=97.0,
+    out_path=band_fig_path,
+    max_bars=60,
+    )
+
     print("Wrote tables:")
     print(" -", overview_path)
     print(" -", missingness_path)
     print(" -", cardinality_path)
+    print(" -", band_fig_path)
 
     # Print loan_status distribution table
     if target_col in df.columns:

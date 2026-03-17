@@ -18,7 +18,8 @@ def load_config(config_path: str) -> dict:
     with open(config_path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
-    # Read loan data and put into datetime format
+    
+# Read loan data and put into datetime format
 def read_data(input_path: str, date_col: str) -> pd.DataFrame:
     path = Path(input_path)
     if not path.exists():
@@ -124,7 +125,7 @@ def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) ->
     plt.savefig(out_path, dpi=150)
     plt.close()
 
-# (NEW) Plot missingness for a specific band
+# (NEW) Plot missingness for a specific band to get better insight
 def plot_missingness_band(
     missingness_df: pd.DataFrame,
     min_pct: float,

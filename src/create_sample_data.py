@@ -31,7 +31,7 @@ def main() -> None:
         p=[0.50, 0.20, 0.10, 0.10, 0.10],
     )
 
-    # creeate interesnt rate based on grade and fico and some noise
+    # creeate interest te based on grade and fico and some noise
     grade_to_base = {g: b for g, b in zip(list("ABCDEFG"), [2.5, 7.5, 12.5, 15.0, 17.5, 20.0, 25.0])}
     base_rate = np.array([grade_to_base[g] for g in grade])
     int_rate = (base_rate + (700 - fico) * 0.015 + rng.normal(0, 0.75, size=n)).clip(5, 35).round(2)

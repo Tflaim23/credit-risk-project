@@ -1,0 +1,60 @@
+column,dtype,pct_missing,is_text_column,n_unique,description,drop_reasons
+id,float64,100.0,False,0,A unique LC assigned ID for the loan listing.,MUST_DROP|HIGH_MISSING
+member_id,float64,100.0,False,0,A unique LC assigned Id for the borrower member.,MUST_DROP|HIGH_MISSING
+url,float64,100.0,False,0,URL for the LC page with listing data.,MUST_DROP|HIGH_MISSING
+next_pymnt_d,str,99.79,True,98,Next scheduled payment date,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+orig_projected_additional_accrued_interest,float64,99.74,False,0,The original projected additional interest amount that will accrue for the given hardship payment plan as of the Hardship Start Date. This field will be null if the borrower has broken their hardship payment plan.,MUST_DROP|HIGH_MISSING
+hardship_start_date,str,99.59,True,26,The start date of the hardship plan period,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+payment_plan_start_date,str,99.59,True,25,"The day the first hardship plan payment is due. For example, if a borrower has a hardship plan period of 3 months, the start date is the start of the three-month period in which the borrower is allowed to make interest-only payments.",HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_end_date,str,99.59,True,24,The end date of the hardship plan period,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_reason,str,99.59,True,9,Describes the reason the hardship plan was offered,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_loan_status,str,99.59,True,5,Loan Status as of the hardship plan start date,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_status,str,99.59,True,3,"Describes if the hardship plan is active, pending, canceled, completed, or broken",HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_type,str,99.59,True,1,Describes the hardship plan offering,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+deferral_term,float64,99.59,False,0,Amount of months that the borrower is expected to pay less than the contractual monthly payment amount due to a hardship plan,MUST_DROP|HIGH_MISSING
+hardship_amount,float64,99.59,False,0,The interest payment that the borrower has committed to make each month while they are on a hardship plan,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_length,float64,99.59,False,0,The number of months the borrower will make smaller payments than normally obligated due to a hardship plan,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_dpd,float64,99.59,False,0,Account days past due as of the hardship plan start date,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_payoff_balance_amount,float64,99.59,False,0,The payoff balance amount as of the hardship plan start date,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+hardship_last_payment_amount,float64,99.59,False,0,The last payment amount as of the hardship plan start date,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+sec_app_mths_since_last_major_derog,float64,99.55,False,0,Months since most recent 90-day or worse rating at time of application for the secondary applicant,HIGH_MISSING
+sec_app_revol_util,float64,98.76,False,0,Ratio of total current balance to high credit/credit limit for all revolving accounts,HIGH_MISSING
+sec_app_earliest_cr_line,str,98.74,True,560,Earliest credit line at time of application for the secondary applicant,HIGH_MISSING|HIGH_CARDINALITY
+revol_bal_joint,float64,98.74,False,0,"Sum of revolving credit balance of the co-borrowers, net of duplicate balances",HIGH_MISSING
+sec_app_inq_last_6mths,float64,98.74,False,0,Credit inquiries in the last 6 months at time of application for the secondary applicant,HIGH_MISSING
+sec_app_mort_acc,float64,98.74,False,0,Number of mortgage accounts at time of application for the secondary applicant,HIGH_MISSING
+sec_app_open_acc,float64,98.74,False,0,Number of open trades at time of application for the secondary applicant,HIGH_MISSING
+sec_app_open_act_il,float64,98.74,False,0,Number of currently active installment trades at time of application for the secondary applicant,HIGH_MISSING
+sec_app_num_rev_accts,float64,98.74,False,0,Number of revolving accounts at time of application for the secondary applicant,HIGH_MISSING
+sec_app_chargeoff_within_12_mths,float64,98.74,False,0,Number of charge-offs within last 12 months at time of application for the secondary applicant,HIGH_MISSING
+sec_app_collections_12_mths_ex_med,float64,98.74,False,0,Number of collections within last 12 months excluding medical collections at time of application for the secondary applicant,HIGH_MISSING
+verification_status_joint,str,98.23,True,3,,HIGH_MISSING
+annual_inc_joint,float64,98.22,False,0,The combined self-reported annual income provided by the co-borrowers during registration,HIGH_MISSING
+dti_joint,float64,98.22,False,0,"A ratio calculated using the co-borrowers' total monthly payments on the total debt obligations, excluding mortgages and the requested LC loan, divided by the co-borrowers' combined self-reported monthly income",HIGH_MISSING
+settlement_date,str,97.55,True,89,The date that the borrower agrees to the settlement plan,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+debt_settlement_flag_date,str,97.55,True,82,The most recent date that the Debt_Settlement_Flag has been set,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+settlement_status,str,97.55,True,3,"The status of the borrower’s settlement plan. Possible values are: COMPLETE, ACTIVE, BROKEN, CANCELLED, DENIED, DRAFT",HIGH_MISSING|LEAKAGE_NAME_PATTERN
+settlement_amount,float64,97.55,False,0,The loan amount that the borrower has agreed to settle for,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+settlement_percentage,float64,97.55,False,0,The settlement amount as a percentage of the payoff balance amount on the loan,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+settlement_term,float64,97.55,False,0,The number of months that the borrower will be on the settlement plan,HIGH_MISSING|LEAKAGE_NAME_PATTERN
+desc,str,90.37,True,124202,Loan description provided by the borrower,HIGH_CARDINALITY
+emp_title,str,6.33,True,372940,The job title supplied by the Borrower when applying for the loan.*,HIGH_CARDINALITY
+title,str,1.18,True,63147,The loan title provided by the borrower,HIGH_CARDINALITY
+last_pymnt_d,str,0.17,True,135,Last month payment was received,LEAKAGE_NAME_PATTERN
+zip_code,str,0.0,True,945,The first 3 numbers of the zip code provided by the borrower in the loan application.,HIGH_CARDINALITY
+earliest_cr_line,str,0.0,True,738,The month the borrower's earliest reported credit line was opened,HIGH_CARDINALITY
+last_credit_pull_d,str,0.0,True,140,The most recent month LC pulled credit for this loan,LEAKAGE_NAME_PATTERN
+loan_status,str,0.0,True,4,Current status of the loan,MUST_DROP
+hardship_flag,str,0.0,True,2,Flags whether or not the borrower is on a hardship plan,LEAKAGE_NAME_PATTERN
+debt_settlement_flag,str,0.0,True,2,"Flags whether or not the borrower, who has charged-off, is working with a debt-settlement company.",LEAKAGE_NAME_PATTERN
+pymnt_plan,str,0.0,True,1,Indicates if a payment plan has been put in place for the loan,LEAKAGE_NAME_PATTERN
+out_prncp,float64,0.0,False,0,Remaining outstanding principal for total amount funded,LEAKAGE_NAME_PATTERN
+out_prncp_inv,float64,0.0,False,0,Remaining outstanding principal for portion of total amount funded by investors,LEAKAGE_NAME_PATTERN
+total_pymnt,float64,0.0,False,0,Payments received to date for total amount funded,LEAKAGE_NAME_PATTERN
+total_pymnt_inv,float64,0.0,False,0,Payments received to date for portion of total amount funded by investors,LEAKAGE_NAME_PATTERN
+total_rec_prncp,float64,0.0,False,0,Principal received to date,LEAKAGE_NAME_PATTERN
+total_rec_int,float64,0.0,False,0,Interest received to date,LEAKAGE_NAME_PATTERN
+total_rec_late_fee,float64,0.0,False,0,Late fees received to date,LEAKAGE_NAME_PATTERN
+recoveries,float64,0.0,False,0,post charge off gross recovery,LEAKAGE_NAME_PATTERN
+collection_recovery_fee,float64,0.0,False,0,post charge off collection fee,LEAKAGE_NAME_PATTERN
+last_pymnt_amnt,float64,0.0,False,0,Last total payment amount received,LEAKAGE_NAME_PATTERN

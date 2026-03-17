@@ -1,0 +1,38 @@
+input_path: "data/processed/lendingclub_modeling_v1.parquet"
+dictionary_csv: "docs/lc_data_dictionary_loanstats.csv"
+output_dir: "reports/tables/modeling_v1"
+
+# Drop cols that are mostly empty
+missing_threshold_pct: 95.0
+
+# Drop text columns w too many distinct values
+high_cardinality_threshold: 500
+
+must_keep:
+  - "issue_d"
+  - "y"
+
+must_drop:
+  - "loan_status"
+  - "id"
+  - "member_id"
+  - "url"
+  - "deferral_term"
+  - "orig_projected_additional_accrued_interest"
+
+# post origination info
+leakage_name_patterns:
+  - "^pymnt_plan$"
+  - "^out_prncp"
+  - "^total_pymnt"
+  - "^total_rec"
+  - "^recover"
+  - "^collection_recovery_fee$"
+  - "^last_pymnt"
+  - "^next_pymnt"
+  - "^last_credit_pull"
+  - "^last_fico"
+  - "^hardship"
+  - "^payment_plan"
+  - "^debt_settlement"
+  - "^settlement"

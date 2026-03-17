@@ -17,7 +17,7 @@ def ensure_parent_dir(file_path: str) -> None:
 def main() -> None:
     #Parser to read what yaml config file to use when running the script. This allows us to have different config 
     # run scripts by doing something like:
-    # First line: .venv/bin/activate
+    # First line: source .venv/bin/activate
     # Second line: python src/load.py --config configs/load_config.yaml
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to YAML config file")

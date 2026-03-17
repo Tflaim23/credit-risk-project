@@ -21,7 +21,7 @@ def main() -> None:
 
     cfg = load_config(args.config)
 
-    # Pulls all the settings
+    # Pulls all the settings from yaml
     input_path = cfg["input_path"]
     date_col = cfg["date_col"]
     status_col = cfg["status_col"]
@@ -35,7 +35,7 @@ def main() -> None:
     if date_col in df.columns:
         df[date_col] = pd.to_datetime(df[date_col], errors="coerce")
 
-    # Filter to only good outcomes
+    # Filter to only reliable outcomes
     keep = df[status_col].isin(good_statuses.union(bad_statuses))
     df = df.loc[keep].copy()
 

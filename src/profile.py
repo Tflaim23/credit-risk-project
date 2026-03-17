@@ -94,6 +94,21 @@ def compute_categorical_cardinality(df: pd.DataFrame) -> pd.DataFrame:
     out = pd.DataFrame(rows).sort_values("n_unique", ascending=False)
     return out
 
+# Compute counts + percents for categorical col
+def compute_value_counts(df: pd.DataFrame, col: str) -> pd.DataFrame:
+
+    counts = (
+        df[col]
+        .astype("string")
+        .fillna("MISSING")
+        .value_counts(dropna=False)
+        .rename_axis(col)
+        .reset_index(name="count")
+    )
+
+    counts["pct"] = (counts["count"] / counts["count"].sum() * 100).round(4)
+    return counts
+
 # Plot top N missingness cols
 def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) -> None:
     top = missingness_df.head(top_n).copy()
@@ -145,6 +160,12 @@ def main() -> None:
     missingness.to_csv(missingness_path, index=False)
     cardinality.to_csv(cardinality_path, index=False)
 
+    # Export target column value counts
+    if target_col in df.columns:
+        status_counts = compute_value_counts(df, target_col)
+        status_counts_path = str(Path(out_tables_dir) / f"{target_col}_counts.csv")
+        status_counts.to_csv(status_counts_path, index=False)
+
     fig_path = str(Path(out_figures_dir) / "missingness_top30.png")
     plot_missingness(missingness_df=missingness, top_n=top_n, out_path=fig_path)
 
@@ -152,6 +173,11 @@ def main() -> None:
     print(" -", overview_path)
     print(" -", missingness_path)
     print(" -", cardinality_path)
+
+    # Print loan_status distribution table
+    if target_col in df.columns:
+        print(" -", status_counts_path)
+
     print("Wrote figure:")
     print(" -", fig_path)
 

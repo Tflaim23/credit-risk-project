@@ -1,0 +1,6 @@
+input_path: "data/raw/lendingclub_raw/loan.csv"
+output_path: "data/processed/lendingclub_full.parquet"
+
+# Only need issue_d for time splitting and profiling date span
+date_cols:
+  - "issue_d"

@@ -1,0 +1,9 @@
+metric,value
+rows,1306356
+columns,146
+memory_mb,1668.6
+duplicate_rows,0
+date_min,2007-06-01 00:00:00
+date_max,2018-12-01 00:00:00
+event_rate,0.20087633080109862
+event_definition,y == '1'

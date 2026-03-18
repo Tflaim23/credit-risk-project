@@ -1,6 +1,6 @@
 input_path: "reports/tables/modeling_v1/keep_columns_v1.csv"
 output_path: "reports/tables/modeling_v1/feature_set_v1.csv"
 
-exclude_columns:
+remove_columns:
   - "issue_d"
   - "y"

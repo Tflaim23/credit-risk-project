@@ -1,4 +1,4 @@
-#Remove y and issue d because thos cols have nothing to do with predicting they were just needed eaarlier 
+# Remove y and issue d because thos cols have nothing to do with predicting they were just needed eaarlier 
 import argparse
 from pathlib import Path
 
@@ -24,7 +24,7 @@ def main() -> None:
 
     input_path = cfg["input_path"]
     output_path = cfg["output_path"]
-    exclude_columns = set(cfg.get("exclude_columns", []))
+    remove_columns = set(cfg.get("remove_columns", []))
 
     keep_df = pd.read_csv(input_path)
 
@@ -32,7 +32,7 @@ def main() -> None:
     feature_names = keep_df["column"].copy()
 
     # Remove y and issue d (in yaml)
-    feature_names = feature_names[~feature_names.isin(exclude_columns)]
+    feature_names = feature_names[~feature_names.isin(remove_columns)]
 
     # sort alphabetically
     feature_names = feature_names.sort_values().reset_index(drop=True)
@@ -44,7 +44,7 @@ def main() -> None:
 
     print("Input:", input_path)
     print("Rows in keep file:", len(keep_df))
-    print("Excluded columns:", sorted(exclude_columns))
+    print("Removed columns:", sorted(remove_columns))
     print("Final feature count:", len(feature_df))
     print("Wrote:")
     print(" -", output_path)

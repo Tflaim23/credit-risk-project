@@ -1,0 +1,12 @@
+input_path: "data/processed/lendingclub_modeling_v1.parquet"
+feature_set_path: "reports/tables/modeling_v1/feature_set_v1.csv"
+
+train_output_path: "data/processed/lendingclub_modeling_v1_train.parquet"
+test_output_path: "data/processed/lendingclub_modeling_v1_test.parquet"
+manifest_output_path: "reports/tables/modeling_v1/split_manifest_v1.csv"
+
+issue_date_col: "issue_d"
+target_col: "y"
+
+# set test data aside from the training data
+test_fraction: 0.20

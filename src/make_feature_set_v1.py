@@ -1,4 +1,4 @@
-# Remove y and issue d because thos cols have nothing to do with predicting they were just needed eaarlier 
+# Make a list and remove y and issue d because those cols have nothing to do with predicting they were just needed eaarlier 
 import argparse
 from pathlib import Path
 

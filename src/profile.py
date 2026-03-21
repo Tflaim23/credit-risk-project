@@ -110,7 +110,7 @@ def compute_value_counts(df: pd.DataFrame, col: str) -> pd.DataFrame:
     counts["pct"] = (counts["count"] / counts["count"].sum() * 100).round(4)
     return counts
 
-# Plot top N missingness cols
+# Plot top N missingness cols (obsolete but left to avoid confusion)
 def plot_missingness(missingness_df: pd.DataFrame, top_n: int, out_path: str) -> None:
     top = missingness_df.head(top_n).copy()
     top = top.sort_values("pct_missing", ascending=True)
@@ -216,6 +216,9 @@ def main() -> None:
     print(" -", overview_path)
     print(" -", missingness_path)
     print(" -", cardinality_path)
+
+    print("Wrote figures:")
+    print(" -", fig_path)
     print(" -", band_fig_path)
 
     # Print loan_status distribution table

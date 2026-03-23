@@ -103,7 +103,7 @@ def main() -> None:
             {
                 "split": "train",
                 "rows": len(train_df),
-                "bad_rate": round(train_df[target_col].mean(), 2),
+                "bad_rate": round(train_df[target_col].mean(), 5),
                 "min_issue_d": train_df[issue_date_col].min().date(),
                 "max_issue_d": train_df[issue_date_col].max().date(),
                 "n_unique_issue_dates": train_df[issue_date_col].nunique(),
@@ -111,7 +111,7 @@ def main() -> None:
             {
                 "split": "test",
                 "rows": len(test_df),
-                "bad_rate": round(test_df[target_col].mean(), 2),
+                "bad_rate": round(test_df[target_col].mean(), 5),
                 "min_issue_d": test_df[issue_date_col].min().date(),
                 "max_issue_d": test_df[issue_date_col].max().date(),
                 "n_unique_issue_dates": test_df[issue_date_col].nunique(),

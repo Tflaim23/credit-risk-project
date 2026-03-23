@@ -1,0 +1,2 @@
+train_rows,test_rows,original_feature_count,numeric_feature_count,categorical_feature_count,numeric_missing_flag_count,transformed_feature_count,train_bad_rate,test_bad_rate
+1029030,277326,85,74,11,67,276,0.2,0.22

@@ -1,0 +1,15 @@
+train_input_path: "data/processed/lendingclub_modeling_v1_train.parquet"
+test_input_path: "data/processed/lendingclub_modeling_v1_test.parquet"
+feature_set_path: "reports/tables/modeling_v1/feature_set_v1.csv"
+
+target_col: "y"
+
+# fitted sklearn ColumnTransformer 
+preprocessor_output_path: "data/processed/preprocessor_v1.joblib"
+# npz only taking non zero values because of onehot 
+x_train_output_path: "data/processed/X_train_preprocessed_v1.npz"
+x_test_output_path: "data/processed/X_test_preprocessed_v1.npz"
+y_train_output_path: "data/processed/y_train_v1.csv"
+y_test_output_path: "data/processed/y_test_v1.csv"
+feature_names_output_path: "reports/tables/modeling_v1/preprocessed_feature_names_v1.csv"
+manifest_output_path: "reports/tables/modeling_v1/preprocess_manifest_v1.csv"

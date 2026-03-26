@@ -1,0 +1,21 @@
+#swap all to v2 for the second try to keep everything from the first just in case
+x_train_path: "data/processed/X_train_preprocessed_v2.npz"
+x_test_path: "data/processed/X_test_preprocessed_v2.npz"
+y_train_path: "data/processed/y_train_v2.csv"
+y_test_path: "data/processed/y_test_v2.csv"
+feature_names_path: "reports/tables/modeling_v1/preprocessed_feature_names_v2.csv"
+
+model_output_path: "data/processed/logreg_model_v2.joblib"
+metrics_output_path: "reports/tables/modeling_v1/logreg_metrics_v2.csv"
+predictions_output_path: "reports/tables/modeling_v1/logreg_test_predictions_v2.csv"
+coefficients_output_path: "reports/tables/modeling_v1/logreg_coefficients_v2.csv"
+
+random_state: 42
+c_value: 1.0
+# Up the max iter to 3000 because I was getting convergence warnings with the default of 1000 and I want to make sure it converges
+# If 5k isn't enough I might have to do something else because it takes so long to run on my laptop
+#Adding tolerance should also help so it isn't quite as rigid but still accurate
+max_iter: 5000
+#leaving the threshold alone still I feel like that wasn't the problem since I got warnings but I can always come back and change it
+#For now I only want to up the iterations and standardize the features so I can actually know what the issue was rather than doing all potential fixes at once
+threshold: 0.50

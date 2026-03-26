@@ -15,7 +15,7 @@ import yaml
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def load_config(path: str) -> dict:
@@ -86,9 +86,13 @@ def build_preprocessor(
 #These two pipes fill in missing values for numeric and categorical cols respectively
 #For numeric it is filled with median and for categorical it is filled with the most frequent value
 #categorical also has onehot which gives it a 1 in its category and 0 in all others so model can deal with them
+
+# (NEW) add a scaler to the pipeline because I think one of the problems with the model was that some features had way bigger ranges than others
+#  I should have down this to begin with but it should help with that by standardizing the numeric features
     numeric_pipe = Pipeline(
         steps=[
             ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
         ]
     )
 

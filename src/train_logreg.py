@@ -117,8 +117,6 @@ def main() -> None:
 
     #setting up model settings for sklearn model
     model = LogisticRegression(
-        #Ridge penalty
-        penalty="l2",
         #set before in the script just another input for how aggresive the ridge is
         C=c_value,
         # Just one of the solvers sklearn uses it said saga is fast for large datasets but idk

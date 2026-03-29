@@ -6,7 +6,7 @@ import pandas as pd
 
 # making test data to try before using real loan data
 def main() -> None:
-    # creating the same randome sample
+    # creating the same random sample, 23 is just a random seed its my favorite number
     rng = np.random.default_rng(seed=23)
 
     # number of fake loan records

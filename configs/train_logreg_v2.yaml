@@ -18,4 +18,5 @@ c_value: 1.0
 max_iter: 5000
 #leaving the threshold alone still I feel like that wasn't the problem since I got warnings but I can always come back and change it
 #For now I only want to up the iterations and standardize the features so I can actually know what the issue was rather than doing all potential fixes at once
+# I am not going to change the threshold in modeling because I can change the cutoff later when comparing to trees, the model's probabilities won't change so it doesn't matter
 threshold: 0.50

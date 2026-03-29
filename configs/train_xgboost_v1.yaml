@@ -1,0 +1,38 @@
+#use the standardized ones
+x_train_path: "data/processed/X_train_preprocessed_v2.npz"
+x_test_path: "data/processed/X_test_preprocessed_v2.npz"
+y_train_path: "data/processed/y_train_v2.csv"
+y_test_path: "data/processed/y_test_v2.csv"
+feature_names_path: "reports/tables/modeling_v1/preprocessed_feature_names_v2.csv"
+
+model_output_path: "data/processed/xgboost_model_v1.joblib"
+metrics_output_path: "reports/tables/modeling_v1/xgboost_metrics_v1.csv"
+predictions_output_path: "reports/tables/modeling_v1/xgboost_test_predictions_v1.csv"
+importances_output_path: "reports/tables/modeling_v1/xgboost_feature_importances_v1.csv"
+
+random_state: 23
+
+# Keep the first run simple and not too expensive
+
+#How many trees it builds, each tree boosted off of the last. Also leanred this in my SRM class
+# Since eacg tree builds on the last more trees is better up to a point, then you start overfitting and it learns the mistakes
+n_estimators: 300
+# % of controbution each tree makes on the total raw logit score
+# the probability of default after a test loan is passed through all the trees is 1/(1+e^-logit)
+#Same sigmoid function I used when creating the fake data
+learning_rate: 0.05
+#How many splits the tree has, want it to be precise but not overfit
+max_depth: 6
+#At least this many obs in each group after a split so it doesn't get tricked by noise and not make super small splits
+min_child_weight: 50
+# Random bagging of loans % used in each tree without replacement
+subsample: 0.8
+# Random bagging of features  % used in each tree without replacement
+colsample_bytree: 0.8
+# Penalization of extra splits, helps to not overfit
+reg_lambda: 1.0
+
+# Same threshold of what gets classified as a default based on it's sigmoid function resulkt
+threshold: 0.50
+# Just to make it go faster
+n_jobs: -1

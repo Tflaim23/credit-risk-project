@@ -1,0 +1,5 @@
+model_name,dataset,rows,threshold,roc_auc,pr_auc,accuracy,f1,log_loss,brier_score
+xgboost_v1,test,277326,0.5,0.71972,0.4089,0.78488,0.23553,0.47259,0.15332
+logistic_regression_v2,test,277326,0.5,0.70556,0.38416,0.7825,0.1814,0.48282,0.15591
+xgboost_v1,train,1029030,0.5,0.74492,0.4261,0.81194,0.18638,0.432,0.13715
+logistic_regression_v2,train,1029030,0.5,0.72613,0.3953,0.80856,0.1575,0.44201,0.14047

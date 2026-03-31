@@ -1,0 +1,2 @@
+model_name,optimize_metric,chosen_threshold_from_train,train_accuracy,train_precision,train_recall,train_f1,train_predicted_bad_rate,test_accuracy_at_chosen_threshold,test_precision_at_chosen_threshold,test_recall_at_chosen_threshold,test_f1_at_chosen_threshold,test_predicted_bad_rate_at_chosen_threshold
+xgboost_v1,f1,0.23,0.717193,0.365887,0.602805,0.455374,0.323134,0.628848,0.335353,0.711709,0.455892,0.463656

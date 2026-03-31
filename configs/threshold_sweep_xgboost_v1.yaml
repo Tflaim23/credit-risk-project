@@ -1,0 +1,18 @@
+model_name: "xgboost_v1"
+model_path: "data/processed/xgboost_model_v1.joblib"
+
+x_train_path: "data/processed/X_train_preprocessed_v2.npz"
+x_test_path: "data/processed/X_test_preprocessed_v2.npz"
+y_train_path: "data/processed/y_train_v2.csv"
+y_test_path: "data/processed/y_test_v2.csv"
+
+train_output_path: "reports/tables/modeling_v1/xgboost_threshold_sweep_train_v1.csv"
+test_output_path: "reports/tables/modeling_v1/xgboost_threshold_sweep_test_v1.csv"
+summary_output_path: "reports/tables/modeling_v1/xgboost_threshold_summary_v1.csv"
+
+optimize_metric: "f1"
+
+#Start finding f1 (or whatever threshold dependent metric) at the low start and work up to high stop at increments of the step one by one
+threshold_start: 0.05
+threshold_stop: 0.70
+threshold_step: 0.01

@@ -1,0 +1,2 @@
+model_name,optimize_metric,chosen_threshold_from_train,train_accuracy,train_precision,train_recall,train_f1,train_predicted_bad_rate,test_accuracy_at_chosen_threshold,test_precision_at_chosen_threshold,test_recall_at_chosen_threshold,test_f1_at_chosen_threshold,test_predicted_bad_rate_at_chosen_threshold
+logistic_regression_v2,f1,0.22,0.692754,0.34178,0.611872,0.438579,0.35113,0.616069,0.325669,0.707401,0.446008,0.474553

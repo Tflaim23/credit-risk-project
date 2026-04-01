@@ -1,0 +1,12 @@
+input_path: "data/processed/lendingclub_modeling_v1_train.parquet"
+
+subtrain_output_path: "data/processed/lendingclub_modeling_v1_subtrain.parquet"
+calibration_output_path: "data/processed/lendingclub_modeling_v1_calibration.parquet"
+manifest_output_path: "reports/tables/modeling_v1/calibration_split_manifest_v1.csv"
+
+issue_date_col: "issue_d"
+target_col: "y"
+
+# I tried running 0.2 but it was making something more like a 60/40 split which must just mean that a lot more loans lie in the last few months of the train data 
+#0.07 worked nice for closer to a 0.8/0.2 split, was just lucky it worked so nicely on the split.py script with this fraction
+calibration_fraction: 0.07

@@ -1,0 +1,2 @@
+subtrain_rows,calibration_rows,test_rows,original_feature_count,numeric_feature_count,categorical_feature_count,numeric_missing_flag_count,transformed_feature_count,subtrain_bad_rate,calibration_bad_rate,test_bad_rate
+825575,203455,277326,85,74,11,67,275,0.18,0.24,0.22

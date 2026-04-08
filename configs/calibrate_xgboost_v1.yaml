@@ -1,0 +1,21 @@
+base_model_path: "data/processed/xgboost_subtrain_model_v1.joblib"
+
+x_calibration_path: "data/processed/X_calibration_preprocessed_v1.npz"
+y_calibration_path: "data/processed/y_calibration_v1.csv"
+
+x_test_path: "data/processed/X_test_preprocessed_for_calibration_v1.npz"
+y_test_path: "data/processed/y_test_for_calibration_v1.csv"
+
+calibrated_model_output_path: "data/processed/xgboost_subtrain_calibrated_model_v1.joblib"
+metrics_output_path: "reports/tables/modeling_v1/xgboost_calibration_metrics_v1.csv"
+predictions_output_path: "reports/tables/modeling_v1/xgboost_calibrated_test_predictions_v1.csv"
+curve_table_output_path: "reports/tables/modeling_v1/xgboost_calibration_curve_test_v1.csv"
+curve_figure_output_path: "reports/figures/modeling_v1/xgboost_calibration_curve_test_v1.png"
+#Platt scaling method
+#sigmoid means S-shaped mapping of predicted probs from model to calibrated probs 
+# isotonic means staircase shaped mapping
+method: "isotonic"
+#number of groups
+n_bins: 10
+#all groups get same amount obs
+curve_strategy: "quantile"

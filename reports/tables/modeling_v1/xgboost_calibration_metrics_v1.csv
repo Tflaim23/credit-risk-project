@@ -1,0 +1,5 @@
+model_version,dataset,roc_auc,pr_auc,log_loss,brier_score,avg_predicted_prob,actual_bad_rate
+xgboost_subtrain_uncalibrated,calibration,0.72714,0.45677,0.49812,0.16329,0.20102,0.24281
+xgboost_subtrain_calibrated,calibration,0.72751,0.45257,0.4914,0.16119,0.24281,0.24281
+xgboost_subtrain_uncalibrated,test,0.71006,0.39358,0.47796,0.15508,0.20014,0.21847
+xgboost_subtrain_calibrated,test,0.70996,0.38926,0.47842,0.15539,0.24257,0.21847

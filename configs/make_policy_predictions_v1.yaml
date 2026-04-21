@@ -1,0 +1,10 @@
+model_path: "data/processed/xgboost_subtrain_model_v1.joblib"
+
+x_subtrain_path: "data/processed/X_subtrain_preprocessed_v1.npz"
+y_subtrain_path: "data/processed/y_subtrain_v1.csv"
+x_test_path: "data/processed/X_test_preprocessed_for_calibration_v1.npz"
+y_test_path: "data/processed/y_test_for_calibration_v1.csv"
+
+subtrain_output_path: "reports/tables/modeling_v1/policy_predictions_subtrain_v1.csv"
+test_output_path: "reports/tables/modeling_v1/policy_predictions_test_v1.csv"
+manifest_output_path: "reports/tables/modeling_v1/policy_predictions_manifest_v1.csv"

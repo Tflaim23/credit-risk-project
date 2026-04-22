@@ -1,0 +1,18 @@
+#I made a second config just becuase I don't like editing things and want to leave everything untouched so my workflow will be easier to remember and explain
+#essentially just adding loan amount for EAD so everything I need for expacted loss other than the constant is in one place for the formula EL = PD * LGD * EAD
+
+model_path: "data/processed/xgboost_subtrain_model_v1.joblib"
+
+raw_subtrain_path: "data/processed/lendingclub_modeling_v1_subtrain.parquet"
+raw_test_path: "data/processed/lendingclub_modeling_v1_test.parquet"
+
+x_subtrain_path: "data/processed/X_subtrain_preprocessed_v1.npz"
+y_subtrain_path: "data/processed/y_subtrain_v1.csv"
+x_test_path: "data/processed/X_test_preprocessed_for_calibration_v1.npz"
+y_test_path: "data/processed/y_test_for_calibration_v1.csv"
+
+subtrain_output_path: "reports/tables/modeling_v1/policy_inputs_subtrain_v2.csv"
+test_output_path: "reports/tables/modeling_v1/policy_inputs_test_v2.csv"
+manifest_output_path: "reports/tables/modeling_v1/policy_inputs_manifest_v2.csv"
+
+ead_column: "loan_amnt"

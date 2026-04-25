@@ -1,0 +1,13 @@
+subtrain_input_path: "reports/tables/modeling_v1/policy_inputs_subtrain_v2.csv"
+test_input_path: "reports/tables/modeling_v1/policy_inputs_test_v2.csv"
+
+sweep_output_path: "reports/tables/modeling_v1/policy_sweep_v1.csv"
+
+#Just a constant loss given a default that would be determined within a lending agency, I used 0.4 because when I looked it up 40% seems average for banks but it has no significance
+#Doesn't change anything about the decision policy since it's just a scaler but I felt it was best to add to keep it realistic
+lgd: 0.40
+
+# I started by using only realistic options but I used 0.01 basically rejecting everything all the way up to accpeting the worst with 0.99 to see how it affects things and gain a better understanding
+threshold_min: 0.01
+threshold_max: 0.99
+threshold_step: 0.01

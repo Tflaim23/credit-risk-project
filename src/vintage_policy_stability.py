@@ -55,6 +55,12 @@ def main() -> None:
     df = policy_df.copy()
     df[issue_date_col] = parse_issue_dates(raw_test[issue_date_col])
 
+    max_issue_date_exclusive = cfg.get("max_issue_date_exclusive")
+
+    # trimming of recent immature vintages
+    cutoff = pd.to_datetime(max_issue_date_exclusive)
+    df = df[df[issue_date_col] < cutoff].copy()
+
     # policy rule: accept if predicted bad probability is at or below the threshold
     df["accepted"] = (df["predicted_prob_bad"] <= threshold).astype(int)
 
@@ -137,6 +143,7 @@ def main() -> None:
 
     print("Threshold:", threshold)
     print("Vintage frequency:", vintage_freq)
+    print("Max issue date exclusive:", max_issue_date_exclusive)
     print()
     print(summary_df.to_string(index=False))
     print()

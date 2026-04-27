@@ -1,0 +1,14 @@
+raw_test_path: "data/processed/lendingclub_modeling_v1_test.parquet"
+policy_input_path: "reports/tables/modeling_v1/policy_inputs_test_v2.csv"
+
+issue_date_col: "issue_d"
+threshold: 0.15
+#Group quarterly
+vintage_freq: "Q"
+
+#Cutoff the two most recent quarters
+max_issue_date_exclusive: "2018-07-01"
+
+output_table_path: "reports/tables/modeling_v1/vintage_policy_stability_v2.csv"
+acceptance_plot_path: "reports/figures/modeling_v1/vintage_acceptance_rate_v2.png"
+risk_plot_path: "reports/figures/modeling_v1/vintage_accepted_risk_v2.png"

@@ -1,0 +1,5 @@
+scenario,pd_multiplier,stressed_lgd,accepted_loans_fixed,total_ead_fixed,avg_base_pd,avg_stressed_pd,actual_bad_rate_fixed_portfolio,expected_loss_fixed_portfolio,expected_loss_rate_fixed_portfolio,actual_loss_fixed_portfolio,actual_loss_rate_fixed_portfolio
+base,1.0,0.4,119985,1467781650.0,0.0851,0.0851,0.1033,49684919.98,0.0339,62480830.0,0.0426
+conservative_overlay,1.15,0.4,119985,1467781650.0,0.0851,0.0978,0.1033,57137657.97,0.0389,62480830.0,0.0426
+mild_recession,1.5,0.44,119985,1467781650.0,0.0851,0.1276,0.1033,81980117.96,0.0559,62480830.0,0.0426
+severe_recession,2.5,0.52,119985,1467781650.0,0.0851,0.2127,0.1033,161475989.93,0.11,62480830.0,0.0426

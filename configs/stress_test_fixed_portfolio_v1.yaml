@@ -1,0 +1,32 @@
+input_path: "reports/tables/modeling_v1/policy_inputs_test_v2.csv"
+
+output_table_path: "reports/tables/modeling_v1/stress_test_fixed_portfolio_v1.csv"
+loss_plot_path: "reports/figures/modeling_v1/stress_fixed_portfolio_el_v1.png"
+loss_rate_plot_path: "reports/figures/modeling_v1/stress_fixed_portfolio_el_rate_v1.png"
+
+threshold: 0.15
+base_lgd: 0.40
+
+# 4 scenarios with different names and multipliers for default prob and loss given default
+# Looked at some sources like moodys default rates study as well as asking the ai to try and get somewhat realistic multipliers historically based on changes in economic data in those scenarios
+# that said, they are very rough estimates and should be taken with a grain of salt but still provide the general idea of incresing losses due to unforseen higher risk scenarios
+scenarios:
+  #normal scenario
+  - name: "base"
+    pd_multiplier: 1.00
+    lgd_multiplier: 1.00
+
+  # normal scenario while considering my model might be a little optimistic
+  - name: "conservative_overlay"
+    pd_multiplier: 1.15
+    lgd_multiplier: 1.00
+
+  # how the model would perform in a common economic downturn
+  - name: "mild_recession"
+    pd_multiplier: 1.50
+    lgd_multiplier: 1.10
+
+  # how the model would perform in a severe economic downturn
+  - name: "severe_recession"
+    pd_multiplier: 2.50
+    lgd_multiplier: 1.30

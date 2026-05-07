@@ -1,0 +1,43 @@
+input_path: "reports/tables/modeling_v1/policy_inputs_test_v2.csv"
+
+simulations_output_path: "reports/tables/modeling_v1/monte_carlo_fixed_portfolio_sims_v1.csv"
+summary_output_path: "reports/tables/modeling_v1/monte_carlo_fixed_portfolio_summary_v1.csv"
+histogram_output_path: "reports/figures/modeling_v1/monte_carlo_fixed_portfolio_hist_v1.png"
+
+threshold: 0.15
+base_lgd: 0.40
+random_state: 23
+
+# 2000 sims for each and the same multiplier means for pd and lgd as in the fixed stress test
+# Add randomness to the multipliers that gets more extreme moving from base/conservative to the extreme scenario
+# Again, the means and standard deviations are rough stress assumptions used to create uncertainty around each scenario they are not based on real economic analysis
+# That is ok because they serve the purpose of showing how more extreme unforseen scenarios lead to larger spread in outcomes just due to the uncertainty
+# These will be normally distributed
+scenarios:
+  - name: "base"
+    n_sims: 2000
+    pd_multiplier_mean: 1.00
+    pd_multiplier_std: 0.05
+    lgd_multiplier_mean: 1.00
+    lgd_multiplier_std: 0.03
+
+  - name: "conservative_overlay"
+    n_sims: 2000
+    pd_multiplier_mean: 1.15
+    pd_multiplier_std: 0.05
+    lgd_multiplier_mean: 1.00
+    lgd_multiplier_std: 0.03
+
+  - name: "mild_recession"
+    n_sims: 2000
+    pd_multiplier_mean: 1.50
+    pd_multiplier_std: 0.12
+    lgd_multiplier_mean: 1.10
+    lgd_multiplier_std: 0.05
+
+  - name: "severe_recession"
+    n_sims: 2000
+    pd_multiplier_mean: 2.50
+    pd_multiplier_std: 0.25
+    lgd_multiplier_mean: 1.30
+    lgd_multiplier_std: 0.08

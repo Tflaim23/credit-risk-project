@@ -5,6 +5,8 @@ matplotlib
 scikit-learn
 pyarrow
 joblib
-tqdm
 pyyaml
+xgboost
+jupyter
+ipykernel
 openpyxl

@@ -1,5 +1,0 @@
-black
-ruff
-pytest
-jupyter
-ipykernel

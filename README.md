@@ -37,22 +37,41 @@ I built a full credit risk pipeline on LendingClub data using a leakage-safe for
 ## Visuals
 
 
-### Policy expected loss rate by threshold
-![Policy expected loss rate](reports/figures/modeling_v1/policy_expected_loss_rate_by_threshold_v1.png)
+### EDA 
 
 
-
-### Monte Carlo fixed-portfolio stress
-![Monte Carlo stress](reports/figures/modeling_v1/monte_carlo_fixed_portfolio_hist_v1.png)
-
-
-
-### Bad rate by grade
+#### Bad rate by grade
 ![Bad rate by grade](reports/figures/modeling_v1/bad_rate_by_grade.png)
 
 
 
-### Deterministic fixed-portfolio stress
+### Model selection
+
+
+
+#### ROC curve comparison
+![ROC curve comparison](reports/figures/modeling_v1/roc_curve_model_comparison_v1.png)
+
+
+
+#### Precision-Recall curve comparison
+![PR curve comparison](reports/figures/modeling_v1/pr_curve_model_comparison_v1.png)
+
+
+### Policy & Stress Testing
+
+
+#### Policy expected loss rate by threshold
+![Policy expected loss rate](reports/figures/modeling_v1/policy_expected_loss_rate_by_threshold_v1.png)
+
+
+
+#### Monte Carlo fixed-portfolio stress
+![Monte Carlo stress](reports/figures/modeling_v1/monte_carlo_fixed_portfolio_hist_v1.png)
+
+
+
+#### Deterministic fixed-portfolio stress
 ![Deterministic fixed-portfolio stress](reports/figures/modeling_v1/stress_fixed_portfolio_el_rate_v1.png)
 
 

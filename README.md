@@ -398,5 +398,3 @@ The Monte Carlo means lined up closely with the deterministic stress test, while
 - This project pushed me beyond simply fitting a model. I ran into many roadblocks, for example around calibration, stability, and training logreg, but I am proud of how I worked through them and turned the project into a complete end-to-end credit risk workflow.
 
 - I plan to keep building on this work by improving my Python fluency and working on more advanced projects during my time in the NC State Master of Financial Mathematics program.
-
-** for **bold**  backticks for `code/terms`

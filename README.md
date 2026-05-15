@@ -41,6 +41,7 @@ I built a full credit risk pipeline on LendingClub data using a leakage-safe for
 
 
 #### Bad rate by grade
+Shows that lower LendingClub grades had higher bad rates, which confirms the dataset has meaningful credit-risk structure before modeling
 ![Bad rate by grade](reports/figures/modeling_v1/bad_rate_by_grade.png)
 
 
@@ -50,11 +51,13 @@ I built a full credit risk pipeline on LendingClub data using a leakage-safe for
 
 
 #### ROC curve comparison
+Shows that both models ranked bad loans above good loans meaningfully better than random, but with XGBoost performing better than logistic regression across all false positive rates
 ![ROC curve comparison](reports/figures/modeling_v1/roc_curve_model_comparison_v1.png)
 
 
 
 #### Precision-Recall curve comparison
+Shows that XGBoost has stronger precision (prob of being correct labeling a loan bad) across all recalls (% of all bad loans captured) compared to LogReg
 ![PR curve comparison](reports/figures/modeling_v1/pr_curve_model_comparison_v1.png)
 
 
@@ -62,16 +65,19 @@ I built a full credit risk pipeline on LendingClub data using a leakage-safe for
 
 
 #### Policy expected loss rate by threshold
+Shows the tradeoff between tighter approval standards and lower expected loss, which guided the choice of the 0.15 policy threshold
 ![Policy expected loss rate](reports/figures/modeling_v1/policy_expected_loss_rate_by_threshold_v1.png)
 
 
 
 #### Monte Carlo fixed-portfolio stress
+Shows the distribution of possible expected loss outcomes under stressed scenarios, giving a view of both average risk and tail risk after many simulations
 ![Monte Carlo stress](reports/figures/modeling_v1/monte_carlo_fixed_portfolio_hist_v1.png)
 
 
 
 #### Deterministic fixed-portfolio stress
+Shows how expected loss rate rises across fixed stress scenarios on the already accepted portfolio, more simple view than monte carlo sims
 ![Deterministic fixed-portfolio stress](reports/figures/modeling_v1/stress_fixed_portfolio_el_rate_v1.png)
 
 
